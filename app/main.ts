@@ -1,5 +1,8 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
 
-import { AppComponent } from './app.component';
+import { MyStuffManagerComponent } from './myStuffManager.component';
+import { appRouterProviders } from './app.routes';
 
-bootstrap(AppComponent);
+bootstrap(MyStuffManagerComponent, [
+  appRouterProviders
+  ]);

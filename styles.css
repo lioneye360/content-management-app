@@ -1,20 +1,21 @@
 /* Master Styles */
 h1 {
-  color: #369; 
-  font-family: Arial, Helvetica, sans-serif;   
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
-h2, h3 { 
+h2, h3 {
   color: #444;
-  font-family: Arial, Helvetica, sans-serif;   
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
-body { 
-  margin: 2em; 
+body {
+  margin: 2em;
+  float:left;
 }
-body, input[text], button { 
-  color: #888; 
-  font-family: Cambria, Georgia; 
+body, input[text], button {
+  color: #888;
+  font-family: Cambria, Georgia;
 }
 a {
   cursor: pointer;
@@ -34,7 +35,7 @@ button:hover {
 }
 button:disabled {
   background-color: #eee;
-  color: #aaa; 
+  color: #aaa;
   cursor: auto;
 }
 
@@ -48,7 +49,7 @@ nav a {
   border-radius: 4px;
 }
 nav a:visited, a:link {
-  color: #607D8B;
+  color: white;
 }
 nav a:hover {
   color: #039be5;
@@ -136,7 +137,40 @@ nav a.router-link-active {
   border-radius: 4px 0 0 4px;
 }
 
+.msmHeader{
+  position:absolute;
+  height: 100px;
+  left:0;
+  top:0;
+  width:100%;
+  float: left;
+  background:#0273D4;
+}
+
+.msmMenu {
+    position: absolute;
+    top:100px;
+    margin-right: 70%;
+    width:30%;
+    height: 90%;
+    background: #e3e3e3;
+    float: left;
+  }
+
+.msmContent {
+  position: absolute;
+  top:100px;
+  margin-left: 30%;
+  width:70%;
+  height: 90%;
+  float: left;
+  background: #f5f5f5;
+}
+
+msm-breadcrumbs{
+  position: relative;
+}
 /* everywhere else */
-* { 
-  font-family: Arial, Helvetica, sans-serif; 
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
