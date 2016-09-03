@@ -1,0 +1,22 @@
+<h2>  Menu</h2>
+<div *ngIf="database">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div *ngFor="let data of database" class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{data.category}}" aria-expanded="false" aria-controls="collapseOne">
+            {{data.category}}
+            <span class="badge">{{data.items.length}}</span>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse{{data.category}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" [class.in]="data.category===getUrl()[1]">
+        <div class="panel-body">
+          <div class="list-group">
+            <a *ngFor="let item of data.items" [routerLink]="[data.category,item.content]" routerLinkActive="active" class="list-group-item" [class.active]="item.content===getUrl()[2] && data.category===getUrl()[1]">{{item.content}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<h2>  Content</h2>
+<div *ngIf="selectedItem">
+  <p>
+    <button type="button" class="btn btn-primary btn-lg" (click)="goEdit()">Edit</button>
+    <button type="button" class="btn btn-danger btn-lg" (click)="deleteData(category, selectedItem.content)">Delete</button>
+  </p>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-8">
+        <h3><label>Title: </label><span class="label label-default">{{selectedItem.title}}</span></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-8">
+        <div class="panel panel-info">
+          <div class="panel-heading">Description</div>
+          <div class="panel-body">
+            <h3><p>{{selectedItem.description}}</p></h3>
+          </div>
+          <table class="table">
+            ...
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <a href="#" class="thumbnail">
+          <img src="images/{{selectedItem.picture}}" class="img-responsive" alt="Responsive image"
+               data-toggle="tooltip" data-placement="bottom" title="{{selectedItem.picture}}">
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

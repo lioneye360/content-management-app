@@ -1,0 +1,5 @@
+<ol class="breadcrumb" style="background: #0273D4; color: white;">
+  <li *ngFor="let para of getUrl(); let i = index">
+    <a routerLink="{{para}}" routerLinkActive="active" style="background: #0273D4; color: white;">{{breadcrumbs[i]}}</a>
+  </li>
+</ol>

@@ -1,25 +1,45 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
 
-import { MsmBreadcrumbsComponent } from './msmBreadcrumbs.component';
-import { MsmMenuComponent } from './msmMenu.component';
 import { MsmContentComponent } from './msmContent.component';
+import { MsmContentEditorComponent } from './msmContentEditor.component';
 
 const routes: RouterConfig = [
   {
+    path: ':category/:content/edit',
+    component: MsmContentEditorComponent,
+    pathMatch: 'full',
+    data: {breadcrumb: 'Edit'}
+  },
+  {
+    path: ':category/:content/:not',
+    redirectTo: '/',
+    pathMatch: 'prefix'
+  },
+  {
+    path: ':category/:content',
+    component: MsmContentComponent,
+    pathMatch: 'full',
+    data: {breadcrumb: 'Content'}
+  },
+  {
+    path: ':category',
+    component: MsmContentComponent
+  },
+  {
     path: '',
-    redirectTo: '/category1/hello',
+    component: MsmContentComponent
+  },
+  {
+    path: '',
+    redirectTo: '/',
     pathMatch: 'full'
-  },
-  {
-    path: 'category2/:content',
-    component: MsmMenuComponent
-  },
-  {
-    path: 'category1/hello',
-    component: MsmBreadcrumbsComponent
   }
+
 ];
 
-export const appRouterProviders = [
+export const APP_ROUTER_PROVIDERS = [
   provideRouter(routes)
 ];
+
+
+

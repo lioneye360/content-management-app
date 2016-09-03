@@ -1,0 +1,44 @@
+<h2>  Editor</h2>
+<form>
+  <div *ngIf="selectedItem">
+    <p>
+      <button type="submit" class="btn btn-primary btn-lg" (click)="editItem()">Save</button>
+      <button type="button" class="btn btn-default btn-lg" (click)="goContent()">Cancel</button>
+
+    </p>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="copyItem.title">
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+          <div class="panel panel-info">
+            <div class="panel-heading">Description</div>
+            <div class="form-group">
+          <textarea type="text" rows="5" class="form-control"
+                    [(ngModel)]="copyItem.description"></textarea>
+            </div>
+            <table class="table">
+              ...
+            </table>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <a href="#" class="thumbnail">
+            <img src="images/{{selectedItem.picture}}" class="img-responsive"  alt="Responsive image"
+                 data-toggle="tooltip" data-placement="bottom" title="{{selectedItem.picture}}">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

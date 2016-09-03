@@ -1,7 +1,6 @@
+import { Item } from './item';
+
 export class Data {
   category: string;
-  content: string;
-  title: string;
-  description: string;
-  picture: string;
+  items: Item[];
 }

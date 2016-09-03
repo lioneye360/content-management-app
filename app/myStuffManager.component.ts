@@ -1,38 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute, UrlPathWithParams} from '@angular/router';
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MsmContentComponent } from './msmContent.component';
 import { MsmBreadcrumbsComponent } from './msmBreadcrumbs.component';
+import { MsmMenuComponent } from './msmMenu.component';
 import { MsmService } from './msmService.service';
+import { MsmContentEditorComponent } from './msmContentEditor.component';
 
 @Component({
     selector: 'my-stuff-manager',
     template: `
-
-    <header class="msmHeader">
-      <msm-breadcrumbs></msm-breadcrumbs>
-          <router-outlet></router-outlet> 
-    </header>
-    <div class="msmMenu"><msm-content></msm-content></div>
-    <div class="msmContent"></div>
- 
+        <header class="msmHeader">
+            <msm-breadcrumbs></msm-breadcrumbs>
+        </header>
+        <div class="msmMenu">
+            <msm-menu></msm-menu>
+        </div>
+        <div class="msmContent">
+            <router-outlet></router-outlet>
+        </div>
   `,
-  directives: [ROUTER_DIRECTIVES, MsmContentComponent, MsmBreadcrumbsComponent],
-  providers: [
-    MsmService
-  ]
+  directives: [ROUTER_DIRECTIVES, MsmContentComponent,MsmContentEditorComponent, MsmBreadcrumbsComponent, MsmMenuComponent],
+  providers: [ MsmService ]
 })
 
-export class MyStuffManagerComponent implements OnInit {
-
-  params: UrlPathWithParams[];
-
-  constructor(
-    private route: ActivatedRoute) {
-  }
-
-  ngOnInit() {
-    this.params = this.route.snapshot.url;
-  }
-
-  title = 'Tour of Heroes!!!!';
+export class MyStuffManagerComponent {
+  title = 'Content Management App';
 }

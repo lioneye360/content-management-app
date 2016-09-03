@@ -1,27 +1,27 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ActivatedRoute, UrlPathWithParams} from '@angular/router';
+import { Component , OnInit } from '@angular/core';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
   selector: 'msm-breadcrumbs',
-  template: '<ol class="breadcrumb" style="background: #0273D4; color: white;"><li *ngFor="let para of params"><a href="{{para.path}}">{{para.path}}</a></li></ol>'
+  templateUrl: 'app/msmBreadcrumbs.component.html',
+  directives: [ROUTER_DIRECTIVES]
 })
 
-export class MsmBreadcrumbsComponent implements OnInit, OnDestroy {
-  params: UrlPathWithParams[];
+export class MsmBreadcrumbsComponent {
+  breadcrumbs: string[] = ['Home', 'Category', 'Content', 'Edit'];
 
-  constructor(
-    private route: ActivatedRoute) {
+
+  constructor(private router:Router) {
   }
 
-  ngOnInit() {
-    this.params = this.route.snapshot.url;
-  }
+  getUrl() {
+    let url:string[] = [''];
+    let single:string = '';
 
-  ngOnDestroy() {
-    //this.sub.unsubscribe();
-  }
-
-  goBack() {
-    window.history.back();
+    this.router.routerState.snapshot.url.split('/').forEach(route => {
+      if (route !== '') {single = single + '/' + route;
+      url.push(single)}
+    });
+      return url;
   }
 }
