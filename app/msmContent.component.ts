@@ -71,7 +71,7 @@ export class MsmContentComponent implements OnInit {
         this.msmService.getData(this.category,this.content)
           .then(item => {this.selectedItem = item;
             if(this.selectedItem === undefined){
-              this.msmService.addData(this.category, this.content).then(d => this.getData(this.category,this.content));
+              this.msmService.addData(this.category, this.content).then(() => this.getData(this.category,this.content));
             }
           });
       }

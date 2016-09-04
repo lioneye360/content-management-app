@@ -16,7 +16,9 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "webdriver:update": "webdriver-manager update"
+    "webdriver:update": "webdriver-manager update",
+    "lite-server-test": "lite-server --config=liteserver-test-config.json",
+    "test": "tsc && concurrently \"npm run tsc:w\" \"npm run lite-server-test\" "
   },
   "keywords": [],
   "author": "",
